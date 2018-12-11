@@ -42,8 +42,9 @@ class SomeClass {
             .on('data', this.someFunc) // defined
 
         // why?
-        // someMethod act the same as before, but it is called from an arrow function
-        // someFunc acts the same as before
+        // someMethod act the same as before, but it is called from within an arrow function,
+        // and since arrow functions have a lexical this binding, the method also binds to that
+        // lexical this, because that is the `this` in its calling context
         getStdin()
             .on('data', () => this.someMethod()) // defined
             .on('data', () => this.someFunc()) // defined
