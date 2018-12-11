@@ -34,14 +34,17 @@ class SomeClass {
 
         console.log('Press any key to see the output.')
 
+        // why?
         getStdin()
             .on('data', this.someMethod) // undefined
             .on('data', this.someFunc) // defined
 
+        // why?
         getStdin()
             .on('data', () => this.someMethod()) // defined
             .on('data', () => this.someFunc()) // defined
 
+        // why?
         getStdin()
             .on('data', this.someMethod.bind(this)) // defined
             .on('data', this.someFunc.bind(this)) // defined
